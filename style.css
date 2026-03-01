@@ -1,0 +1,176 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    max-width: 960px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: .6em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+    padding-bottom: 1em;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    margin-top: 3em;
+}
+
+header {
+    text-align: center;
+    margin: auto 2em;
+    gap: 1rem;
+    position: relative;
+}
+
+
+section {
+    margin: auto 1em 4em 2em;
+}
+
+i {
+    margin-right: .5em;
+}
+
+p {
+    margin: .2em auto
+}
+
+hr {
+    border: none;
+    background-color: lightgray;
+    height: 1px;
+}
+
+h1,
+h2 {
+    font-weight: 100;
+    margin-bottom: 0;
+}
+#mainLeft {
+   border-right: 1px solid lightgray;
+}
+
+.resume-photo,
+    .resume-photo-hover {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #e6e6e6;
+        /*margin-right: 20px;*/
+    }
+
+.resume-photo {
+    display: block;
+}
+
+.resume-photo-hover {
+    display: none;
+}
+
+#photo-container:hover .resume-photo {
+    display: none;
+}
+
+#photo-container:hover .resume-photo-hover {
+    display: block;
+}
+
+
+@media (min-width: 600px) {
+
+    /* position the photo absolutely to the right of the header */
+    #photo-container {
+        position: absolute;
+        right: 0px;
+        margin-top: -250px;
+        transform: translateY(100%);
+    }
+}
+
+/* Hide the photo on small screens (under 600px) */
+@media (max-width: 599px) {
+  .resume-photo {
+    display: none;
+  }
+}
+
+
+
+
+/* ETOILES */
+
+/* L’article devient une grille verticale */
+article.level {
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 8px;
+    width: max-content;
+    margin-left: -20px;
+    /* clé : l’article prend la largeur de la plus grande section */
+}
+
+/* Chaque ligne : étoiles à gauche, texte à droite */
+.rating-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: start;
+    gap: 5px;
+}
+
+/* Étoiles TripAdvisor */
+.stars {
+    --rating: attr(data-rating number);
+    --star-size: 1.8rem;
+    --star-color: #ccc;
+    --star-warning: rgb(205, 139, 92);
+    --star-color-filled: gold;
+
+    font-size: var(--star-size);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: inline-block;
+}
+
+.stars::before {
+    content: "★★★★★";
+    color: var(--star-color);
+}
+
+.stars::after {
+    content: "★★★★★";
+    color: var(--star-color-filled);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--rating) / 5 * 100%);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Texte aligné à droite */
+.rating-row p {
+    margin: 0;
+
+}
+
+.rating-row p::after {
+    margin-left: 0.3rem;
+    content: "(" attr(data-rating) ")";
+    color: #555;
+}
+
+p[data-rating^="1"]+.stars::after,
+p[data-rating^="2"]+.stars::after {
+    content: "★★★★★";
+    color: var(--star-warning);
+}
