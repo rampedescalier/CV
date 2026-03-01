@@ -91,7 +91,7 @@ h2 {
     #photo-container {
         position: absolute;
         right: 0px;
-        margin-top: -250px;
+        margin-top: -220px;
         transform: translateY(100%);
     }
 }
