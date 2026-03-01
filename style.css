@@ -25,6 +25,7 @@ main {
 }
 
 header {
+    font-size: 1.2em;
     text-align: center;
     margin: auto 2em;
     gap: 1rem;
@@ -92,7 +93,7 @@ h2 {
     #photo-container {
         position: absolute;
         right: 0px;
-        margin-top: -260px;
+        margin-top: -295px;
         transform: translateY(100%);
     }
 }
@@ -105,27 +106,24 @@ h2 {
 }
 
 
-
-
 /* ETOILES */
 
 /* L’article devient une grille verticale */
 article.level {
     display: grid;
     grid-auto-rows: auto;
-    gap: 8px;
+    gap: 1px;
     width: max-content;
     margin-left: -20px;
     /* clé : l’article prend la largeur de la plus grande section */
 }
 
-/* Chaque ligne : étoiles à gauche, texte à droite */
 .rating-row {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
     justify-items: start;
-    gap: 5px;
+    gap: 1px;
 }
 
 /* Étoiles TripAdvisor */
@@ -165,7 +163,7 @@ article.level {
 }
 
 .rating-row p::after {
-    margin-left: 0.3rem;
+    margin-left: 0.5rem;
     content: "(" attr(data-rating) ")";
     color: #555;
 }
